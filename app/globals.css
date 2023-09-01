@@ -1,0 +1,34 @@
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --tw-gradient-from: #f1f5f9 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(241 245 249 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+*{
+  box-sizing: border-box;
+  
+  /* border: 1px solid red; */
+}
+h1,h2,h3,h4,h5,h6{
+  color:white;
+}
+p,span{
+  color:#d9d9d9;
+}
+html {
+  scroll-behavior: smooth;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #111827;
+}
+body{
+  min-height: 100vh;
+  width: 80rem;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
