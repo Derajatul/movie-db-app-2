@@ -1,10 +1,29 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root{
-  --tw-gradient-from: #f1f5f9 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(241 245 249 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+@layer base {
+  h1 {
+    @apply text-3xl font-bold mb-4 text-white;
+  }
+  h2 {
+    @apply text-2xl font-bold mb-4 text-white;
+  }
+  h3{
+    @apply text-xl font-bold mb-3 text-white;
+  }
+  h4{
+    @apply text-lg font-semibold mb-3 text-white;
+  }
+  h5{
+    @apply text-base font-semibold mb-2 text-white;
+  }
+  h6{
+    @apply text-base font-semibold mb-2 text-white;
+  }
+  p,span{
+    @apply text-base mb-2;
+  }
 }
 
 *{
@@ -12,18 +31,18 @@
   
   /* border: 1px solid red; */
 }
-h1,h2,h3,h4,h5,h6{
+/* h1,h2,h3,h4,h5,h6{
   color:white;
 }
 p,span{
   color:#d9d9d9;
-}
+} */
+
 html {
   scroll-behavior: smooth;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #111827;
 }
 body{
   min-height: 100vh;
