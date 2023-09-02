@@ -1,6 +1,10 @@
 import Image from 'next/image'
 
-const getData = async({detail}:params) => {
+type Params = {
+  detail: string;
+}
+
+const getData = async({detail}:Params) => {
   const res = await fetch(`http://www.omdbapi.com/?apikey=eec38979&t=${detail}`)
   if (!res.ok) {
     throw new Error('Failed to fetch data')
@@ -8,11 +12,7 @@ const getData = async({detail}:params) => {
   return res.json()
 } 
 
-type params = {
-  detail: string;
-}
-
-const Page = async({params}:params) => {
+const Page = async({params}:{ params: Params }) => {
   const movie = await getData(params)
   return(
     <div className="flex flex-wrap gap-20 mt-10">
