@@ -27,8 +27,6 @@ const Home = async() => {
           <Card 
             key={movie.imdbID}
             title={movie.Title}
-            year={movie.Year}
-            type={movie.Type}
             poster={movie.Poster}
             href={movie.Title}
           />
