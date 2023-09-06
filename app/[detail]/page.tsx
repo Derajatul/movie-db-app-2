@@ -15,7 +15,7 @@ const getData = async({detail}:Params) => {
 const Page = async({params}:{ params: Params }) => {
   const movie = await getData(params)
   return(
-    <div className="flex flex-wrap gap-20 flex-col items-center xl:flex-row xl:items-start">
+    <div className="flex flex-wrap gap-20 flex-col items-center lg:flex-row lg:items-start">
       <div className="w-full sm:w-[48%] md:w-[300px] flex flex-col gap-5">
         <Image 
           src={movie.Poster} 
