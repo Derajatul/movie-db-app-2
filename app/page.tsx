@@ -26,7 +26,12 @@ const Home = () => {
   const { data, error } = useSWR(`https://www.omdbapi.com/?apikey=eec38979&s=${query}`, fetcher);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return (
+      <div className="w-full min-h-screen flex items-center justify-center">
+        <span className="loading loading-spinner loading-lg">  
+        </span>
+      </div>
+    );
   }
 
   if (error) {
