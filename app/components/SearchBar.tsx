@@ -6,7 +6,7 @@ const SearchBar = () => {
   const { query, handleSubmit }: any = useQuery();
 
   const handleSearch = () => {
-    const input = document.getElementById('search')
+    const input = document.getElementById('search') as HTMLInputElement | null;
     if (input) {
       handleSubmit(input.value);
     }
