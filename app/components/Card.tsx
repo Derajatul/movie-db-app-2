@@ -8,6 +8,7 @@ type Card = {
 }
 
 const Card = ({poster,title,href}:Card) => {
+  const placeholderImg = 'https://via.placeholder.com/500x500.png?text=Placeholder+Image'; 
   return(
     <Link 
       className="w-full sm:w-[48%] lg:w-[31.5%] xl:w-[22%] bg-neutral card-compact" 
@@ -21,8 +22,8 @@ const Card = ({poster,title,href}:Card) => {
             width:'100%',
             height: 'auto'
           }}
-          src={poster} 
-          alt={title} 
+          src={poster === "N/A" ? placeholderImg : poster} 
+          alt={title === "N/A" ? title : 'Placeholder img'} 
         />
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
