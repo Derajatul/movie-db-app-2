@@ -91,7 +91,7 @@ const Page = async({params}:{ params: Params }) => {
           <MovieDetail heading="Countries" detail={movie.Country} />
           <MovieDetail heading="Duration" detail={movie.Runtime} />      </div>
         <div className="flex justify-between">
-          {movie.Ratings.map(rating => (
+          {movie.Ratings.map((rating: {Source: string, Value: string}) => (
             <div key={rating.Source} className="text-center">
               <h3>{rating.Source}</h3>
               <p>{rating.Value}</p>

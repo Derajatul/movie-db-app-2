@@ -4,7 +4,7 @@ import Card from './components/Card'
 import { useQuery } from './contexts/QueryContext'
 import useSWR from 'swr';
 
-const fetcher = (url) =>
+const fetcher = (url: string) =>
   fetch(url)
     .then((response) => {
       if (!response.ok) {

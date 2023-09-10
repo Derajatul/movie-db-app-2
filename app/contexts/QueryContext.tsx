@@ -2,7 +2,6 @@
 
 import { useState, createContext, useContext } from 'react';
 
-// Buat context untuk query
 export const QueryContext = createContext();
 
 export const QueryProvider = ({ children }: {children: React.ReactNode}) => {
