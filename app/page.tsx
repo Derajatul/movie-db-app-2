@@ -1,13 +1,17 @@
-import Image from 'next/image'
-import Card from './components/Card'
+"use client"
 
-const getData = async() => {
-  const res = await fetch('http://www.omdbapi.com/?apikey=eec38979&s=one piece')
-  if (!res.ok) {
-    throw new Error('Failed to fetch data')
-  }
-  return res.json()
-}
+import Card from './components/Card'
+import { useQuery } from './contexts/QueryContext'
+import useSWR from 'swr';
+
+const fetcher = (url) =>
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      return response.json();
+    });
 
 type movie = {
   imdbID: string;
@@ -17,13 +21,22 @@ type movie = {
   Poster: string;
 }
 
-const Home = async() => {
-  const movies = await getData()
+const Home = () => {
+  const { query } = useQuery()
+  const { data, error } = useSWR(`https://www.omdbapi.com/?apikey=eec38979&s=${query}`, fetcher);
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
 
   return (
     <>
       <div className="flex flex-wrap justify-between gap-5">
-        {movies.Search.map((movie:movie) => (
+        {data.Search.map((movie:movie) => (
           <Card 
             key={movie.imdbID}
             title={movie.Title}
@@ -36,4 +49,6 @@ const Home = async() => {
     </>
   )
 }
+
+
 export default Home
