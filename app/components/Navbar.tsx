@@ -3,7 +3,7 @@ import SearchBar from './SearchBar'
 
 const Navbar = () => {
   return(
-    <div className="navbar bg-base-100 flex justify-between items-center">
+    <div className="navbar sticky top-0 bg-base-100 flex justify-between items-center">
       <Link href="/" className="btn btn-ghost normal-case text-xl">
         Movie.io
       </Link>
