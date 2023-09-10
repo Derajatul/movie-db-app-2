@@ -7,7 +7,9 @@ const SearchBar = () => {
 
   const handleSearch = () => {
     const input = document.getElementById('search')
-    handleSubmit(input.value)
+    if (input) {
+      handleSubmit(input.value);
+    }
   }
   
   return(
