@@ -2,7 +2,7 @@
 
 import { useState, createContext, useContext } from 'react';
 
-export const QueryContext = createContext();
+export const QueryContext = createContext({});
 
 export const QueryProvider = ({ children }: {children: React.ReactNode}) => {
   const [query, setQuery] = useState('one piece');
