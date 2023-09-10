@@ -3,7 +3,8 @@
 import { useQuery } from '../contexts/QueryContext'
 
 const SearchBar = () => {
-  const { query:string,handleSubmit: () => void } = useQuery()
+  const { query, handleSubmit }: { query: string; handleSubmit: (newQuery: string) => void } = useQuery();
+
   const handleSearch = () => {
     const input = document.getElementById('search')
     handleSubmit(input.value)
