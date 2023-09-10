@@ -3,7 +3,13 @@
 import { useQuery } from '../contexts/QueryContext'
 
 const SearchBar = () => {
-  const { query, handleSubmit }: any = useQuery();
+  const { handleSubmit }: any = useQuery();
+
+  const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === 'Enter'){
+      handleSearch()
+    }
+  }
 
   const handleSearch = () => {
     const input = document.getElementById('search') as HTMLInputElement | null;
@@ -16,7 +22,7 @@ const SearchBar = () => {
     <div className="join">
       <div>
         <div>
-          <input id="search" className="input input-bordered join-item w-full max-w-xs" placeholder="Search movie..."   />
+          <input id="search" className="input input-bordered join-item w-full max-w-xs" placeholder="Search movie..." onKeyDown={handleEnter}   />
         </div>
       </div>
       <div className="indicator">
